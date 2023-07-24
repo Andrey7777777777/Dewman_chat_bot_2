@@ -4,6 +4,7 @@ import logging
 from environs import Env
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from DialogFlow import detect_intent_texts
 
 
 logging.basicConfig(
@@ -11,20 +12,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-
-
-def detect_intent_texts(project_id, session_id, texts, language_code):
-    session_client = dialogflow.SessionsClient()
-    session = session_client.session_path(project_id, session_id)
-    for text in texts:
-        text_input = dialogflow.TextInput(text=text, language_code=language_code)
-
-        query_input = dialogflow.QueryInput(text=text_input)
-
-        response = session_client.detect_intent(
-            request={"session": session, "query_input": query_input}
-        )
-        return response.query_result.fulfillment_text
 
 
 def start(update: Update, context: CallbackContext):
