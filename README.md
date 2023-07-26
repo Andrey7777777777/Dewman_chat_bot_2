@@ -46,7 +46,7 @@ python create_intent.py
 
 ## Примеры использования
 [телеграм бот](https://t.me/Dewman_chat_bot)
-![tg_bot](![bot_work_record.gif](bot_work_record.gif))
+![tg_bot](bot_work_record.gif)
 
 [VK_bot](https://vk.com/club221718184)
 
