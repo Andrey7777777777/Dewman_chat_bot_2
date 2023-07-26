@@ -34,15 +34,12 @@ def main():
     env = Env()
     env.read_env()
     project_id = env.str('PROJECT_ID')
-    display_name = 'Как устроиться к вам на работу'
-    message_texts = []
     with open("new_intent.json", "r", encoding="utf-8") as my_file:
         file_contents = json.load(my_file)
-        job_intent = file_contents["Устройство на работу"]
-        training_phrases_parts = job_intent["questions"]
-        message_text = job_intent["answer"]
-        message_texts.append(message_text)
-        create_intent(project_id, display_name, training_phrases_parts, message_texts)
+    for job_intent, value in file_contents.items():
+        training_phrases_parts = value["questions"]
+        message_text = [value["answer"]]
+        create_intent(project_id, job_intent, training_phrases_parts, message_text)
 
 
 if __name__ == '__main__':
