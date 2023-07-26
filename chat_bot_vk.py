@@ -29,7 +29,7 @@ def get_ai_answer(event, vk_api, project_id, ):
 def main():
     logging.basicConfig(
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        # filename='vk_bot.log'
+        filename='vk_bot.log'
     )
     logger.setLevel(logging.DEBUG)
     env = Env()

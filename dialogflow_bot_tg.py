@@ -1,4 +1,3 @@
-from google.cloud import dialogflow
 import logging
 
 import telegram
@@ -28,7 +27,7 @@ def get_answer(update, context):
 def main():
     logging.basicConfig(
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        #filename='tg_bot.log'
+        filename='tg_bot.log'
         )
     logger.setLevel(logging.DEBUG)
     env = Env()
