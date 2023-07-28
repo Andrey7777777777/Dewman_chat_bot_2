@@ -7,7 +7,7 @@ from environs import Env
 
 import vk_api as vk
 from vk_api.longpoll import VkLongPoll, VkEventType
-from DialogFlow import detect_intent_texts
+from dialogflow import detect_intent_texts
 from log_handler import TelegramLogsHandler
 
 

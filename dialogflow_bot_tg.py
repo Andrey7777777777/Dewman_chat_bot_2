@@ -4,7 +4,7 @@ import telegram
 from environs import Env
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-from DialogFlow import detect_intent_texts
+from dialogflow import detect_intent_texts
 from log_handler import TelegramLogsHandler
 
 
