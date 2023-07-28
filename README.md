@@ -44,6 +44,11 @@ python create_intent.py
 ```
 Для обучения нужно разместить файл в формате json с данными для обучения
 
+Также вы можете передать скрипту путь до файла с фразами и ответами, например:
+```shell
+python create_intent.py -fp C:\Users\user\Desktop\new_intent.json
+```
+
 ## Примеры использования
 [телеграм бот](https://t.me/Dewman_chat_bot)
 ![tg_bot](bot_work_record.gif)

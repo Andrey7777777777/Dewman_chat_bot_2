@@ -1,5 +1,7 @@
+import argparse
 import logging
 import json
+import os
 
 from environs import Env
 from google.cloud import dialogflow
@@ -34,8 +36,18 @@ def main():
     env = Env()
     env.read_env()
     project_id = env.str('PROJECT_ID')
-    with open("new_intent.json", "r", encoding="utf-8") as my_file:
-        file_contents = json.load(my_file)
+    default_file_path = os.path.join(os.getcwd(), 'new_intent.json')
+    parser = argparse.ArgumentParser(description='Запуск скрипта')
+    parser.add_argument(
+        '-fp',
+        '--file_path',
+        help='Укажите путь к файлу',
+        nargs='?', default=default_file_path, type=str
+    )
+    args = parser.parse_args()
+    file_path = args.file_path
+    with open(file_path, "r", encoding="utf-8") as file:
+        file_contents = json.load(file)
     for job_intent, value in file_contents.items():
         training_phrases_parts = value["questions"]
         message_text = [value["answer"]]
